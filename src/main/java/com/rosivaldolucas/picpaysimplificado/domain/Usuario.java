@@ -1,5 +1,7 @@
 package com.rosivaldolucas.picpaysimplificado.domain;
 
+import com.rosivaldolucas.picpaysimplificado.domain.enums.TipoUsuario;
+
 public abstract class Usuario {
 
   private String nome;
@@ -14,6 +16,10 @@ public abstract class Usuario {
     this.cpf = cpf;
     this.saldo = saldo;
     this.tipo = tipo;
+  }
+
+  public boolean isValidoTransferir() {
+    return this.tipo.equals(TipoUsuario.COMUM);
   }
 
   public void depositar(final Double valor) {

@@ -1,5 +1,7 @@
 package com.rosivaldolucas.picpaysimplificado.domain;
 
+import com.rosivaldolucas.picpaysimplificado.domain.enums.TipoUsuario;
+
 public class UsuarioLogista extends Usuario {
 
   private UsuarioLogista(final String nome, final String cpf, final Double saldo) {
