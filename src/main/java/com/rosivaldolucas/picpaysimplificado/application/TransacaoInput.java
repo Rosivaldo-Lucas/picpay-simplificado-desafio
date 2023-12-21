@@ -3,12 +3,12 @@ package com.rosivaldolucas.picpaysimplificado.application;
 import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
 
 public record TransacaoInput(
-        Usuario pagador,
-        Usuario recebedor,
+        Long pagador,
+        Long recebedor,
         Double valor
 ) {
 
-  public static TransacaoInput criar(final Usuario pagador, final Usuario recebedor, final Double valor) {
+  public static TransacaoInput criar(final Long pagador, final Long recebedor, final Double valor) {
     return new TransacaoInput(pagador, recebedor, valor);
   }
 
