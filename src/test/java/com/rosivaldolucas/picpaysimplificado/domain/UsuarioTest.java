@@ -30,4 +30,35 @@ public class UsuarioTest {
     Assertions.assertEquals("Saldo usuário não pode ser nulo.", exception.getMessage());
   }
 
+  @Test
+  public void t04_deveDepositar100ReaisSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
+
+    usuario.depositar(100D);
+
+    Assertions.assertNotNull(usuario);
+    Assertions.assertEquals(200D, usuario.getSaldo());
+  }
+
+  @Test
+  public void t05_deveRetirar100ReaisSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
+
+    usuario.retirar(100D);
+
+    Assertions.assertNotNull(usuario);
+    Assertions.assertEquals(0, usuario.getSaldo());
+  }
+
+  @Test
+  public void t06_naoDeveRetirarQuandoValorMaiorQueSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
+
+    final IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> usuario.retirar(500D));
+
+    Assertions.assertNotNull(exception);
+    Assertions.assertEquals("Usuário não tem saldo suficiente para retirar.", exception.getMessage());
+    Assertions.assertEquals(100D, usuario.getSaldo());
+  }
+
 }

@@ -16,12 +16,18 @@ public abstract class Usuario {
     this.tipo = tipo;
   }
 
-  public void incrementarSaldo(final Double valor) {
+  public void depositar(final Double valor) {
     this.saldo += valor;
   }
 
-  public void decrementarSaldo(final Double valor) {
+  public void retirar(final Double valor) {
+    if (valor > this.saldo) throw new IllegalArgumentException("Usuário não tem saldo suficiente para retirar.");
+
     this.saldo -= valor;
+  }
+
+  public Double getSaldo() {
+    return saldo;
   }
 
   public TipoUsuario getTipo() {
