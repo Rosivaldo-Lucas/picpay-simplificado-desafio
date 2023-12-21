@@ -2,8 +2,8 @@ package com.rosivaldolucas.picpaysimplificado.application;
 
 import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.Transacao;
-import com.rosivaldolucas.picpaysimplificado.infra.TransacaoRepository;
-import com.rosivaldolucas.picpaysimplificado.infra.UsuarioRepository;
+import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;
+import com.rosivaldolucas.picpaysimplificado.infra.repositories.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,10 +11,12 @@ public class TransacaoUseCase {
 
   private final TransacaoRepository transacaoRepository;
   private final UsuarioRepository usuarioRepository;
+  private final AutorizarTransacao autorizarTransacao;
 
-  public TransacaoUseCase(final TransacaoRepository transacaoRepository, final UsuarioRepository usuarioRepository) {
+  public TransacaoUseCase(final TransacaoRepository transacaoRepository, final UsuarioRepository usuarioRepository, final AutorizarTransacao autorizarTransacao) {
     this.transacaoRepository = transacaoRepository;
     this.usuarioRepository = usuarioRepository;
+    this.autorizarTransacao = autorizarTransacao;
   }
 
   public TransacaoOutput execute(final TransacaoInput transacaoInput) {
@@ -26,6 +28,12 @@ public class TransacaoUseCase {
     final Usuario usuarioRecebedor = this.usuarioRepository.findById(recebedor).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado."));
 
     final Transacao novaTransacao = Transacao.criar(usuarioPagador, usuarioRecebedor);
+
+    final StatusAutorizadorTransacao status = this.autorizarTransacao.autorizar();
+
+    if (!status.equals(StatusAutorizadorTransacao.AUTORIZADO)) {
+      throw new IllegalArgumentException("Transação não autorizada.");
+    }
 
     novaTransacao.transferir(valor);
 

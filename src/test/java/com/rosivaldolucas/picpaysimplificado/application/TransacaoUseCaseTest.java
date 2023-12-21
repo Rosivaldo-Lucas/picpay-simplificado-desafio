@@ -4,8 +4,8 @@ import com.rosivaldolucas.picpaysimplificado.domain.Transacao;
 import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.UsuarioComum;
 import com.rosivaldolucas.picpaysimplificado.domain.UsuarioLogista;
-import com.rosivaldolucas.picpaysimplificado.infra.TransacaoRepository;
-import com.rosivaldolucas.picpaysimplificado.infra.UsuarioRepository;
+import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;
+import com.rosivaldolucas.picpaysimplificado.infra.repositories.UsuarioRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,12 +23,14 @@ public class TransacaoUseCaseTest {
   private TransacaoRepository transacaoRepository;
   @Mock
   private UsuarioRepository usuarioRepository;
+  @Mock
+  private AutorizarTransacao autorizarTransacao;
 
   private TransacaoUseCase transacaoUseCase;
 
   @BeforeEach
   public void setup() {
-    this.transacaoUseCase = new TransacaoUseCase(this.transacaoRepository, this.usuarioRepository);
+    this.transacaoUseCase = new TransacaoUseCase(this.transacaoRepository, this.usuarioRepository, this.autorizarTransacao);
   }
 
   @Test
