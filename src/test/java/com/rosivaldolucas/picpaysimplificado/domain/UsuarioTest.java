@@ -1,5 +1,8 @@
 package com.rosivaldolucas.picpaysimplificado.domain;
 
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioComum;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioLogista;
 import com.rosivaldolucas.picpaysimplificado.domain.enums.TipoUsuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

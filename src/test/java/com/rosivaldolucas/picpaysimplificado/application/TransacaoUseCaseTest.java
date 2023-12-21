@@ -1,9 +1,10 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
-import com.rosivaldolucas.picpaysimplificado.domain.Transacao;
-import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
-import com.rosivaldolucas.picpaysimplificado.domain.UsuarioComum;
-import com.rosivaldolucas.picpaysimplificado.domain.UsuarioLogista;
+import com.rosivaldolucas.picpaysimplificado.domain.AutorizarTransacao;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioComum;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioLogista;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.UsuarioRepository;
 import org.junit.jupiter.api.Assertions;

@@ -1,4 +1,4 @@
-package com.rosivaldolucas.picpaysimplificado.domain;
+package com.rosivaldolucas.picpaysimplificado.domain.entities;
 
 import com.rosivaldolucas.picpaysimplificado.domain.enums.StatusTransacao;
 import jakarta.persistence.*;

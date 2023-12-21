@@ -1,9 +1,11 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
-import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
-import com.rosivaldolucas.picpaysimplificado.domain.Transacao;
+import com.rosivaldolucas.picpaysimplificado.domain.AutorizarTransacao;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.UsuarioRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +21,7 @@ public class TransacaoUseCase {
     this.autorizarTransacao = autorizarTransacao;
   }
 
+  @Transactional
   public TransacaoOutput execute(final TransacaoInput transacaoInput) {
     final Long pagador = transacaoInput.pagador();
     final Long recebedor = transacaoInput.recebedor();

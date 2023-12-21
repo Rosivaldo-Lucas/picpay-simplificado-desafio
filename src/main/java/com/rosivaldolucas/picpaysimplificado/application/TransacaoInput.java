@@ -1,7 +1,5 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
-import com.rosivaldolucas.picpaysimplificado.domain.Usuario;
-
 public record TransacaoInput(
         Long pagador,
         Long recebedor,
