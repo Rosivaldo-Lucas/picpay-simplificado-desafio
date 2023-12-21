@@ -1,6 +1,5 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
-import com.rosivaldolucas.picpaysimplificado.domain.AutorizarTransacao;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;

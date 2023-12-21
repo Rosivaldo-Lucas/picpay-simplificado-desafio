@@ -4,6 +4,7 @@ import com.rosivaldolucas.picpaysimplificado.domain.enums.StatusTransacao;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "transacao")
@@ -51,7 +52,7 @@ public class Transacao {
 
     this.valor = valor;
     this.status = StatusTransacao.TRANSFERIDO;
-    this.codigo = String.format("%d%08d", LocalDate.now().getYear(), 1);
+    this.codigo = UUID.randomUUID().toString();
   }
 
   public String obterCodigo() {

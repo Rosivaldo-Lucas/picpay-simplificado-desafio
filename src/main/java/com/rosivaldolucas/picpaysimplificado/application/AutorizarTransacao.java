@@ -1,4 +1,4 @@
-package com.rosivaldolucas.picpaysimplificado.domain;
+package com.rosivaldolucas.picpaysimplificado.application;
 
 import com.rosivaldolucas.picpaysimplificado.application.StatusAutorizadorTransacao;
 

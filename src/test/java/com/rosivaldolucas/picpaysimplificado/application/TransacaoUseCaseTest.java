@@ -1,6 +1,5 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
-import com.rosivaldolucas.picpaysimplificado.domain.AutorizarTransacao;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioComum;
@@ -44,11 +43,12 @@ public class TransacaoUseCaseTest {
 
     Mockito.when(this.usuarioRepository.findById(1L)).thenReturn(Optional.of(usuarioComumPagador));
     Mockito.when(this.usuarioRepository.findById(2L)).thenReturn(Optional.of(usuarioLogistaRecebedor));
+    Mockito.when(this.autorizarTransacao.autorizar()).thenReturn(StatusAutorizadorTransacao.AUTORIZADO);
     Mockito.when(this.transacaoRepository.save(Mockito.any(Transacao.class))).thenReturn(Mockito.any(Transacao.class));
 
     final TransacaoOutput transacaoOutput = transacaoUseCase.execute(transacaoInput);
 
-    Assertions.assertEquals("202300000001", transacaoOutput.codigo());
+    Assertions.assertNotNull(transacaoOutput.codigo());
     Assertions.assertEquals("TRANSFERIDO", transacaoOutput.status());
     Assertions.assertEquals(50D, usuarioComumPagador.getSaldo());
     Assertions.assertEquals(600D, usuarioLogistaRecebedor.getSaldo());

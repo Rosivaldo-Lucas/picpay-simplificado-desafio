@@ -19,6 +19,7 @@ public class TransacaoTest {
 
     Assertions.assertEquals(150D, usuarioComumPagador.getSaldo());
     Assertions.assertEquals(100D, usuarioLogistaRecebedor.getSaldo());
+    Assertions.assertNull(novaTransacao.obterCodigo());
     Assertions.assertEquals(StatusTransacao.PENDENTE, novaTransacao.obterStatus());
   }
 
@@ -33,6 +34,7 @@ public class TransacaoTest {
 
     Assertions.assertEquals(50D, usuarioComumPagador.getSaldo());
     Assertions.assertEquals(200D, usuarioLogistaRecebedor.getSaldo());
+    Assertions.assertNotNull(novaTransacao.obterCodigo());
     Assertions.assertEquals(StatusTransacao.TRANSFERIDO, novaTransacao.obterStatus());
   }
 
@@ -59,6 +61,7 @@ public class TransacaoTest {
 
     Assertions.assertEquals(50D, usuarioComumPagador.getSaldo());
     Assertions.assertEquals(200D, usuarioComumRecebedor.getSaldo());
+    Assertions.assertNotNull(novaTransacao.obterCodigo());
     Assertions.assertEquals(StatusTransacao.TRANSFERIDO, novaTransacao.obterStatus());
   }
 
