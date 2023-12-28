@@ -12,8 +12,11 @@ public class TransacaoTest {
 
   @Test
   public void t01_deveCriarTransacaoComStatusPendente() {
-    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469", 150D);
-    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
+    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469");
+    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    usuarioComumPagador.depositar(150D);
+    usuarioLogistaRecebedor.depositar(100D);
 
     final Transacao novaTransacao = Transacao.criar(usuarioComumPagador, usuarioLogistaRecebedor);
 
@@ -25,8 +28,11 @@ public class TransacaoTest {
 
   @Test
   public void t02_deveTransferir100ReaisUsuarioComumParaUsuarioLogista() {
-    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469", 150D);
-    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
+    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469");
+    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    usuarioComumPagador.depositar(150D);
+    usuarioLogistaRecebedor.depositar(100D);
 
     final Transacao novaTransacao = Transacao.criar(usuarioComumPagador, usuarioLogistaRecebedor);
 
@@ -40,8 +46,11 @@ public class TransacaoTest {
 
   @Test
   public void t03_naoDeveTransferirUsuarioLogistaParaUsuarioComum() {
-    final Usuario usuarioLogistaPagador = UsuarioLogista.criar("Rosivaldo", "01586493469", 100D);
-    final Usuario usuarioComumRecebedor = UsuarioComum.criar("Rosivaldo", "01586493469", 150D);
+    final Usuario usuarioLogistaPagador = UsuarioLogista.criar("Rosivaldo", "01586493469");
+    final Usuario usuarioComumRecebedor = UsuarioComum.criar("Rosivaldo", "01586493469");
+
+    usuarioLogistaPagador.depositar(150D);
+    usuarioComumRecebedor.depositar(100D);
 
     final IllegalArgumentException exception = Assertions
             .assertThrows(IllegalArgumentException.class, () -> Transacao.criar(usuarioLogistaPagador, usuarioComumRecebedor));
@@ -52,8 +61,11 @@ public class TransacaoTest {
 
   @Test
   public void t04_deveTransferir100ReaisUsuarioComumParaUsuarioComum() {
-    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469", 150D);
-    final Usuario usuarioComumRecebedor = UsuarioComum.criar("Lucas", "01586493469", 100D);
+    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469");
+    final Usuario usuarioComumRecebedor = UsuarioComum.criar("Lucas", "01586493469");
+
+    usuarioComumPagador.depositar(150D);
+    usuarioComumRecebedor.depositar(100D);
 
     final Transacao novaTransacao = Transacao.criar(usuarioComumPagador, usuarioComumRecebedor);
 

@@ -3,7 +3,7 @@ package com.rosivaldolucas.picpaysimplificado.infra;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rosivaldolucas.picpaysimplificado.application.StatusAutorizadorTransacao;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.StatusAutorizadorTransacao;
 import com.rosivaldolucas.picpaysimplificado.application.AutorizarTransacao;
 import com.rosivaldolucas.picpaysimplificado.infra.httpclient.ClienteHttp;
 import org.springframework.stereotype.Component;

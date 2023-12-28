@@ -28,12 +28,10 @@ public abstract class Usuario {
 
   protected Usuario() { }
 
-  protected Usuario(final String nome, final String cpf, final Double saldo, final TipoUsuario tipo) {
-    if (saldo < 0) throw new IllegalArgumentException("Saldo usuário não pode ser nulo.");
-
+  protected Usuario(final String nome, final String cpf, final TipoUsuario tipo) {
     this.nome = nome;
     this.cpf = cpf;
-    this.saldo = saldo;
+    this.saldo = 0D;
     this.tipo = tipo;
   }
 
@@ -42,6 +40,8 @@ public abstract class Usuario {
   }
 
   public void depositar(final Double valor) {
+    if (valor < 0) throw new IllegalArgumentException("Valor a ser depositado não pode ser negativo.");
+
     this.saldo += valor;
   }
 
@@ -49,6 +49,10 @@ public abstract class Usuario {
     if (valor > this.saldo) throw new IllegalArgumentException("Usuário não tem saldo suficiente para retirar.");
 
     this.saldo -= valor;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   public Double getSaldo() {

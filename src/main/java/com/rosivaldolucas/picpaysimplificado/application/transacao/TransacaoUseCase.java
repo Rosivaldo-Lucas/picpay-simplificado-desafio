@@ -1,5 +1,9 @@
-package com.rosivaldolucas.picpaysimplificado.application;
+package com.rosivaldolucas.picpaysimplificado.application.transacao;
 
+import com.rosivaldolucas.picpaysimplificado.application.AutorizarTransacao;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.StatusAutorizadorTransacao;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoInput;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoOutput;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
 import com.rosivaldolucas.picpaysimplificado.infra.repositories.TransacaoRepository;

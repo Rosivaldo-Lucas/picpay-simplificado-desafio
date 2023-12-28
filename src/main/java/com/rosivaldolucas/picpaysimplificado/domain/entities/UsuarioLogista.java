@@ -10,12 +10,12 @@ public class UsuarioLogista extends Usuario {
 
   protected UsuarioLogista() { }
 
-  private UsuarioLogista(final String nome, final String cpf, final Double saldo) {
-    super(nome, cpf, saldo, TipoUsuario.LOGISTA);
+  private UsuarioLogista(final String nome, final String cpf) {
+    super(nome, cpf, TipoUsuario.LOGISTA);
   }
 
-  public static UsuarioLogista criar(final String nome, final String cpf, final Double saldo) {
-    return new UsuarioLogista(nome, cpf, saldo);
+  public static UsuarioLogista criar(final String nome, final String cpf) {
+    return new UsuarioLogista(nome, cpf);
   }
 
 }

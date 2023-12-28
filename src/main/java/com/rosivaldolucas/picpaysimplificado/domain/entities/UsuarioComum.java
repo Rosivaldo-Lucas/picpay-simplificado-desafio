@@ -10,12 +10,12 @@ public class UsuarioComum extends Usuario {
 
   protected UsuarioComum() { }
 
-  private UsuarioComum(final String nome, final String cpf, final Double saldo) {
-    super(nome, cpf, saldo, TipoUsuario.COMUM);
+  private UsuarioComum(final String nome, final String cpf) {
+    super(nome, cpf, TipoUsuario.COMUM);
   }
 
-  public static UsuarioComum criar(final String nome, final String cpf, final Double saldo) {
-    return new UsuarioComum(nome, cpf, saldo);
+  public static UsuarioComum criar(final String nome, final String cpf) {
+    return new UsuarioComum(nome, cpf);
   }
 
 }

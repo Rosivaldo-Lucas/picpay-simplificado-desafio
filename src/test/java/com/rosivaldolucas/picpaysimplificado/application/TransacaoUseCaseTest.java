@@ -1,5 +1,9 @@
 package com.rosivaldolucas.picpaysimplificado.application;
 
+import com.rosivaldolucas.picpaysimplificado.application.transacao.StatusAutorizadorTransacao;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoInput;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoOutput;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoUseCase;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Transacao;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioComum;
@@ -35,9 +39,12 @@ public class TransacaoUseCaseTest {
 
   @Test
   public void t01_deveRealizarTransferenciaDe100ReaisUsuarioComumParaUsuarioLogista() {
-    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469", 150D);
-    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Lucas Logista", "01586493469", 500D);
+    final Usuario usuarioComumPagador = UsuarioComum.criar("Rosivaldo", "01586493469");
+    final Usuario usuarioLogistaRecebedor = UsuarioLogista.criar("Lucas Logista", "01586493469");
     final double valorTransacao = 100D;
+
+    usuarioComumPagador.depositar(150D);
+    usuarioLogistaRecebedor.depositar(500D);
 
     final TransacaoInput transacaoInput = TransacaoInput.criar(1L, 2L, valorTransacao);
 

@@ -1,8 +1,8 @@
 package com.rosivaldolucas.picpaysimplificado.infra.api;
 
-import com.rosivaldolucas.picpaysimplificado.application.TransacaoInput;
-import com.rosivaldolucas.picpaysimplificado.application.TransacaoOutput;
-import com.rosivaldolucas.picpaysimplificado.application.TransacaoUseCase;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoInput;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoOutput;
+import com.rosivaldolucas.picpaysimplificado.application.transacao.TransacaoUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

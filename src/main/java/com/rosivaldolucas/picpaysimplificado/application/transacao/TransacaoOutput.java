@@ -1,4 +1,4 @@
-package com.rosivaldolucas.picpaysimplificado.application;
+package com.rosivaldolucas.picpaysimplificado.application.transacao;
 
 public record TransacaoOutput(
         String codigo,
