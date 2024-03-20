@@ -1,6 +1,5 @@
-package com.rosivaldolucas.picpaysimplificado.infra.repositories;
+package com.rosivaldolucas.picpaysimplificado.domain.usuario;
 
-import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
