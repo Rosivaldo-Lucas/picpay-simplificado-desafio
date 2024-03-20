@@ -1,4 +1,4 @@
-package com.rosivaldolucas.picpaysimplificado.infra;
+package com.rosivaldolucas.picpaysimplificado.domain.transacao.autorizar;
 
 public record AutorizacaoTransacao(
         String message

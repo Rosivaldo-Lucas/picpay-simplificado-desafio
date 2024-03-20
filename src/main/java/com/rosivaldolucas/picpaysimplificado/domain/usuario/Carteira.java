@@ -19,4 +19,20 @@ public class Carteira {
     return this.saldo;
   }
 
+  public void validarDebito(final BigDecimal valor) {
+    if (!(this.saldo.compareTo(valor) >= 0)) {
+      throw new IllegalArgumentException("");
+    }
+  }
+
+  public void debitar(final BigDecimal valor) {
+    this.validarDebito(valor);
+
+    this.saldo = this.saldo.subtract(valor);
+  }
+
+  public void creditar(final BigDecimal valor) {
+    this.saldo = this.saldo.add(valor);
+  }
+
 }
