@@ -1,6 +1,7 @@
 package com.rosivaldolucas.picpaysimplificado.domain.transacao;
 
 import com.rosivaldolucas.picpaysimplificado.api.dto.NovaTransacaoInput;
+import com.rosivaldolucas.picpaysimplificado.domain.transacao.autorizar.AutorizarTransacao;
 import com.rosivaldolucas.picpaysimplificado.domain.usuario.Usuario;
 import com.rosivaldolucas.picpaysimplificado.domain.usuario.UsuarioRepository;
 import org.springframework.stereotype.Service;

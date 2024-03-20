@@ -1,6 +1,5 @@
-package com.rosivaldolucas.picpaysimplificado.infra;
+package com.rosivaldolucas.picpaysimplificado.domain.transacao.autorizar;
 
-import com.rosivaldolucas.picpaysimplificado.domain.transacao.AutorizarTransacao;
 import com.rosivaldolucas.picpaysimplificado.domain.transacao.Transacao;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
