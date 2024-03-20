@@ -32,16 +32,19 @@ public class Usuario {
   @JoinColumn(name = "ID_CARTEIRA")
   private Carteira carteira;
 
-  public boolean isComum() {
-    return this.tipoUsuario.equals(TipoUsuario.COMUM);
+  public void podeRealizarPagamento() {
+    if (this.tipoUsuario.equals(TipoUsuario.LOGISTA)) {
+      throw new IllegalArgumentException("");
+    }
   }
 
-  public boolean isLogista() {
-    return this.tipoUsuario.equals(TipoUsuario.LOGISTA);
+  public void debitar(final BigDecimal valor) {
+    this.carteira.validarDebito(valor);
+    this.carteira.debitar(valor);
   }
 
-  public boolean podeDebitarValor(final BigDecimal valor) {
-    return this.carteira.getSaldo().compareTo(valor) >= 0;
+  public void creditar(final BigDecimal valor) {
+    this.carteira.creditar(valor);
   }
 
 }

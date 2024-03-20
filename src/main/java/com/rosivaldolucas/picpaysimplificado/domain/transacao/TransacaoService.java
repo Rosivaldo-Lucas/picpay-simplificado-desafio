@@ -21,21 +21,13 @@ public class TransacaoService {
   }
 
   public void criar(final NovaTransacaoInput input) {
-    // validar usuario e validar saldo usuario pagador
-    // usuario pagador deve ser do tipo COMUM
     final Usuario usuarioPagador = this.usuarioRepository.findById(input.pagador()).orElseThrow(() -> new IllegalArgumentException(""));
     final Usuario usuarioRecebedor = this.usuarioRepository.findById(input.recebedor()).orElseThrow(() -> new IllegalArgumentException(""));
 
-    if (usuarioPagador.isLogista()) {
-      throw new IllegalArgumentException("");
-    }
+    usuarioPagador.podeRealizarPagamento();
 
-    if (usuarioPagador.podeDebitarValor(input.valor())) {
-      throw new IllegalArgumentException("");
-    }
-
-//    usuarioPagador.debitar(input.valor());
-//    usuarioRecebedor.creditar(input.valor());
+    usuarioPagador.debitar(input.valor());
+    usuarioRecebedor.creditar(input.valor());
 
     // criar transacao
     final Transacao transacao = Transacao.criarCom(input.valor(), usuarioPagador, usuarioRecebedor);
