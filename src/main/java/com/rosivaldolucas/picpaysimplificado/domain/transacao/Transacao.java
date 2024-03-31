@@ -43,4 +43,24 @@ public class Transacao {
     return new Transacao(null, valor, pagador, recebedor);
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public BigDecimal getValor() {
+    return valor;
+  }
+
+  public Usuario getPagador() {
+    return pagador;
+  }
+
+  public Usuario getRecebedor() {
+    return recebedor;
+  }
+
+  public LocalDateTime getCriadoEm() {
+    return criadoEm;
+  }
+
 }
