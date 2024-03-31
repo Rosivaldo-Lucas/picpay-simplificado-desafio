@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //package com.rosivaldolucas.picpaysimplificado.domain;
 //
 //import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
@@ -66,3 +67,67 @@
 ////  }
 //
 //}
+=======
+package com.rosivaldolucas.picpaysimplificado.domain;
+
+import com.rosivaldolucas.picpaysimplificado.domain.entities.Usuario;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioComum;
+import com.rosivaldolucas.picpaysimplificado.domain.entities.UsuarioLogista;
+import com.rosivaldolucas.picpaysimplificado.domain.enums.TipoUsuario;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class UsuarioTest {
+
+  @Test
+  public void t01_deveCriarUsuarioComum() {
+    final Usuario usuarioComum = UsuarioComum.criar("Rosivaldo", "01586493469");
+
+    Assertions.assertNotNull(usuarioComum);
+    Assertions.assertEquals(0D, usuarioComum.getSaldo());
+    Assertions.assertEquals(TipoUsuario.COMUM, usuarioComum.getTipo());
+  }
+
+  @Test
+  public void t02_deveCriarUsuarioLogista() {
+    final Usuario usuarioLogista = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    Assertions.assertNotNull(usuarioLogista);
+    Assertions.assertEquals(0D, usuarioLogista.getSaldo());
+    Assertions.assertEquals(TipoUsuario.LOGISTA, usuarioLogista.getTipo());
+  }
+
+  @Test
+  public void t03_deveDepositar100ReaisSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    usuario.depositar(100D);
+
+    Assertions.assertNotNull(usuario);
+    Assertions.assertEquals(100D, usuario.getSaldo());
+  }
+
+  @Test
+  public void t05_deveRetirar100ReaisSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    usuario.depositar(100D);
+    usuario.retirar(100D);
+
+    Assertions.assertNotNull(usuario);
+    Assertions.assertEquals(0D, usuario.getSaldo());
+  }
+
+  @Test
+  public void t06_naoDeveRetirarQuandoValorMaiorQueSaldoUsuario() {
+    final Usuario usuario = UsuarioLogista.criar("Rosivaldo", "01586493469");
+
+    final IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> usuario.retirar(500D));
+
+    Assertions.assertNotNull(exception);
+    Assertions.assertEquals("Usuário não tem saldo suficiente para retirar.", exception.getMessage());
+    Assertions.assertEquals(0D, usuario.getSaldo());
+  }
+
+}
+>>>>>>> develop
