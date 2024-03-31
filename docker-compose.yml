@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  pps-db-mysql:
+    image: mysql
+    container_name: pps-db-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "4000:3306"
+    networks:
+      - pps-nt
+
+  pps-rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: pps-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq/
+    networks:
+      - pps-nt
+
+networks:
+  pps-nt:
+    driver: bridge

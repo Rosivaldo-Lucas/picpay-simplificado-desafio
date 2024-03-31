@@ -47,4 +47,19 @@ public class Usuario {
     this.carteira.creditar(valor);
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public String getDocumento() {
+    return documento;
+  }
+
+  public String getEmail() {
+    return email;
+  }
 }
